@@ -13,7 +13,7 @@
       <thead class="table text-light text-start">
         <tr>
           <th class="col-5"></th>
-          <th class="col-5">Health information & kresearch</th>
+          <th class="col-5">Health Information & Research</th>
         </tr>
       </thead>
       <tbody class="text-start">

@@ -73,7 +73,7 @@ import LoginView from "./pages/LoginView.vue";
 import PermissionError from "./pages/PermissionError";
 import SearchView from "./pages/SearchView.vue";
 import PatientsStatistics from "./pages/PatientsStatistics.vue";
-import AboutSystem from "./pages/AboutUs.vue";
+import HomeIndex from "./pages/HomeIndex.vue";
 //view record pages
 const houseOfficerFollowup = {
   path: "houseOfficerFollowup",
@@ -203,7 +203,7 @@ const router = createRouter({
   routes: [
     { path: "/", component: LoginView },
     { path: "/permissionError", component: PermissionError },
-    { path: "/aboutUs", component: AboutSystem },
+    { path: "/aboutUs", component: HomeIndex },
     {
       path: "/patientsearch",
       component: SearchView,

@@ -201,20 +201,22 @@ import BaseCard from '@/components/UI/BaseCard.vue';
     }
     },
     
-    
+    created(){
+      this.fetchPatients();
+    },
     methods:{
    
-      //  async fetchPatients(){
-      //    this.isLoading = true;
-      //   try{
-      //     await this.$store.dispatch('Statistician/fetchPatients');
-      //   }
-      //   catch(error){
-      //     this.error=error.message ||" Something went wrong!";
-      //   }
-      //  this.isLoading = false;
-      // //console.log(this.$store.getters['admin/users']);
-      // },
+       async fetchPatients(){
+         this.isLoading = true;
+        try{
+          await this.$store.dispatch('Statistician/fetchPatients');
+        }
+        catch(error){
+          this.error=error.message ||" Something went wrong!";
+        }
+       this.isLoading = false;
+      console.log(this.$store.getters['Statistician/patients']);
+      },
 
       async search(){   
           
