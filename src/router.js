@@ -9,6 +9,7 @@ import AdminMain from "./pages/Admin/AdminMain.vue";
 import AddUser from "./components/Admin/AddNewUser.vue";
 import DashboardStatistics from "./components/Admin/DashboardStatistics.vue";
 import ViewUsers from "./components/Admin/ViewUsers.vue";
+import usersByDate from "./components/Admin/UsersByDates.vue";
 //GeneralDoctor
 import HouseofficerForm from "./components/GeneralDoctor/HouseOfficerFollowupForm.vue";
 import HouseofficerFollowup from "./components/GeneralDoctor/HouseOfficerFollowup.vue";
@@ -73,6 +74,8 @@ import LoginView from "./pages/LoginView.vue";
 import PermissionError from "./pages/PermissionError";
 import SearchView from "./pages/SearchView.vue";
 import PatientsStatistics from "./pages/PatientsStatistics.vue";
+import DeathStates from "./pages/DeathStates.vue";
+import PatientView from "./pages/PatientsView.vue";
 import HomeIndex from "./pages/HomeIndex.vue";
 //view record pages
 const houseOfficerFollowup = {
@@ -215,6 +218,16 @@ const router = createRouter({
       meta: { requireAuth: true },
     },
     {
+      path: "/patients/:startDate/:endDate",
+      component: PatientView,
+      meta: { requireAuth: true },
+    },
+    {
+      path: "/deathStates/:startDate/:endDate",
+      component: DeathStates,
+      meta: { requireAuth: true },
+    },
+    {
       path: "/admin",
       component: AdminMain,
       meta: { requireAuth: true, isAdmin: true },
@@ -222,6 +235,7 @@ const router = createRouter({
         { path: "viewusers", component: ViewUsers },
         { path: "addusers", component: AddUser },
         { path: "dashboard", component: DashboardStatistics },
+        { path: "users/:startDate/:endDate", component: usersByDate },
       ],
     },
     {

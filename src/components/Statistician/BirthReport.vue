@@ -149,7 +149,7 @@
                 @change="clearError('token')"
                 v-model="token.value"
               />
-              <label class="form-check-label me-5" for="inlineCheckbox2"
+              <label class="form-check-label ms-1 me-5" for="inlineCheckbox2"
                 >Ergometrine injection</label
               >
             </div>
@@ -183,7 +183,39 @@
         </div>
         <div class="row ps-5">
           <div class="d-flex mt-2">
-            <label for="">Baby </label>
+            <label class="me-5" for="">Baby </label>
+            <div class="form-check form-check-inline ms-5">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox4"
+                value="Single"
+                @change="clearError('babyKind')"
+                v-model="babyKind.value"
+              />
+              <label class="form-check-label me-5" for="inlineCheckbox4"
+                >Single</label
+              >
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox5"
+                value="Twins"
+                @change="clearError('babyKind')"
+                v-model="babyKind.value"
+              />
+              <label class="form-check-label me-5" for="inlineCheckbox5"
+                >Twins</label
+              >
+            </div>
+            <p v-if="!babyKind.isValid">Please select baby type</p>
+          </div>
+        </div>
+        <div class="row ps-5">
+          <div class="d-flex mt-2">
+            <label for="">Gender </label>
             <div class="form-check form-check-inline">
               <input
                 class="form-check-input ms-5"
@@ -210,32 +242,7 @@
                 >Female</label
               >
             </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="inlineCheckbox4"
-                value="Single"
-                @change="clearError('baby')"
-                v-model="baby.value"
-              />
-              <label class="form-check-label me-5" for="inlineCheckbox4"
-                >Single</label
-              >
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="inlineCheckbox5"
-                value="Twins"
-                @change="clearError('baby')"
-                v-model="baby.value"
-              />
-              <label class="form-check-label me-5" for="inlineCheckbox5"
-                >Twins</label
-              >
-            </div>
+            <p v-if="!baby.isValid">Please select birth gender</p>
           </div>
         </div>
         <div class="me-5 ps-5">
@@ -263,6 +270,7 @@ export default {
       token: { value: [], isValid: true },
       bloodQuantity: { value: null, isValid: true },
       baby: { value: [], isValid: true },
+      babyKind: { value: [], isValid: true },
 
       formIsValid: true,
     };
@@ -333,6 +341,14 @@ export default {
         this.bloodQuantity.isValid = false;
         this.formIsValid = false;
       }
+      if (this.babyKind.value.length<1) {
+        this.babyKind.isValid = false;
+        this.formIsValid = false;
+      }
+       if (this.baby.value.length<1) {
+        this.baby.isValid = false;
+        this.formIsValid = false;
+      }
 
       this.submitForm();
     },
@@ -355,7 +371,8 @@ export default {
           wound: this.wound.value,
           vitamin_k: this.vitaminK.value,
           token: this.token.value.join(),
-          baby_type: this.baby.value.join()
+          baby_type: this.baby.value.join(),
+          baby_kind:this.babyKind.value.join(),
        }
         console.log(birthReport);
         try{

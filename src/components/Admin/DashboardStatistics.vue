@@ -1,33 +1,66 @@
 
 <template>
+<div class="view">
 <div class="container">
   
   <div class="row mt-5 mb-1">
         <h2>Dashboard</h2>
-        <statistic-card icon="users" circleStyle="background-color:rgba(66, 66, 99,0.8);font-size:20px;padding:0.7rem 1rem">
+        <statistic-card class=" col-3" icon="users" circleStyle="background-color:rgba(66, 66, 99,0.8);font-size:20px;padding:0.7rem 1rem">
           <h3>{{usersCount}}</h3>
           <p>Total users</p>
         </statistic-card>
       
-      <statistic-card icon="user-pen" circleStyle="background-color:rgba(255, 30, 105,0.8);font-size:22px;padding-top:0.75rem">
+      <statistic-card icon="user-pen" class=" col-3" circleStyle="background-color:rgba(255, 30, 105,0.8);font-size:22px;padding-top:0.75rem">
           <h3>{{statician}}</h3>
           <p>Statistician</p>
         </statistic-card>
-        <statistic-card icon="user-nurse" circleStyle="background-color:rgba(9, 174, 229,0.8)">
+        <statistic-card icon="user-nurse" class=" col-3" circleStyle="background-color:rgba(9, 174, 229,0.8)">
           <h3>{{nurse}}</h3>
           <p>Nurse</p>
         </statistic-card>
         <!-- <div class="left rounded-circle col-2"  style="background-color:rgba(9, 174, 229,0.8)">
             <font-awesome-icon icon="user-nurse" style="font-size:24px;"/>
         </div> -->
-      <statistic-card icon="user-doctor" circleStyle="background-color:rgba(127, 31, 211,0.5)">
+      <statistic-card icon="user-doctor" class=" col-3" circleStyle="background-color:rgba(127, 31, 211,0.5)">
           <h3>{{vicDoctor}}</h3>
           <p>Vice Doctor</p>
         </statistic-card>
-      <statistic-card icon="user-tie" circleStyle="background-color:rgba(9, 74, 80,0.8)">
+      <statistic-card icon="user-tie" class=" col-3"  circleStyle="background-color:rgba(9, 74, 80,0.8)">
           <h3>{{generalDoctor}}</h3>
           <p>General Doctor</p>
         </statistic-card>
+     </div>
+     <div class="row ">
+       <div class="col-10">
+       <base-card style="max-width:98%; margin-left:2px">
+       <div class="row">
+       <div class="col-5">
+          <form @submit.prevent="submitForm">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Start date</label>
+              <input type="datetime-local" class="form-control"  v-model="startDate" id="exampleFormControlInput1">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">End date</label>
+              <input type="datetime-local" class="form-control" v-model="endtDate" id="exampleFormControlInput1" >
+            </div>
+            <div class="text-center my-3">
+            <button  class="btn btn-dark send">Show Result</button>
+            </div>
+          </form>
+        </div>
+        <div class="left-icon col-1">
+           <font-awesome-icon icon="user"  />
+        </div>
+        <div class="col-2 text-center form-result">
+          <h1>{{formResult}}</h1>
+          <p>Total Users</p>
+          
+        </div>
+        <div class="col-2 mt-5"><router-link :to="`users/${startDate}/${endtDate}`" class="btn btn-dark mt-3" v-if="formResult!=0">View Users</router-link></div>
+        </div>
+        </base-card>
+        </div>
      </div>
      <div class="row">
       <div class="card col-4 me-5">
@@ -38,6 +71,7 @@
         <canvas id="pieChart" width="300" height="300"></canvas>
       </div>
       </div>
+</div>
 </div>
 </template>
 <script>
@@ -60,7 +94,12 @@ export default{
       General_count:0,
       Excellence_count:0,
       National_Service_count:0,
-      Collaborator_count:0
+      Collaborator_count:0,
+      endtDate:null,
+      startDate:null,
+      formResult:0,
+      showResult:false,
+      
     }
   },
   computed:{
@@ -132,6 +171,27 @@ export default{
           //this.drawPieChart();
           
       },
+      async submitForm(){
+        if(!this.startDate||!this.endtDate){
+          this.formResult=0;
+          this.showResult=false;
+        }
+        else{
+          console.log(this.endtDate+"  "+this.endtDate);
+          try{
+            
+          await this.$store.dispatch('admin/countUsersByDate',{
+          start:this.startDate,
+          end:this.endtDate
+        });
+        this.formResult=this.$store.getters['admin/getUsersCount'];
+        console.log(this.$store.getters['admin/getUsersCount']);
+            }
+            catch(error){
+              this.errors=error.message ||" Something went wrong!";
+            }
+        }
+      },
       drawBarChart(){
         var self=this;
           const ctx=document.getElementById('barChart');
@@ -186,8 +246,11 @@ export default{
 </script>
 
 <style scoped>
+.view{
+  overflow-x:hidden ;
+}
 .container{
-  min-width: 120%;
+  min-width: 120%;  
 }
 .card {
   border-radius: 0px;
@@ -198,7 +261,24 @@ export default{
   padding: 0.8rem;
   z-index: 0;
 }
-
+.left-icon{
+  font-size:40px;
+  color:#64415b;
+  margin-left:14rem;
+  margin-top:2.7rem
+}
+.form-result{
+  margin-left: -6%;
+}
+.form-result h1{
+  color:#5e4056 ;
+  font-size: 3rem;
+  margin-bottom: 2px;
+}
+.form-result p{
+  font-weight: 700;
+  color: #64415b;
+}
 .space{
   width:5rem;
 }

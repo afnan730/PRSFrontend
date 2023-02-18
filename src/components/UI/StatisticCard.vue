@@ -1,5 +1,5 @@
 <template>
-        <div class="card col-3">
+        <div class="card">
           <div class="row">
             <div class="left rounded-circle col-2" :style="circleStyle">
                 <font-awesome-icon :icon="icon"  />

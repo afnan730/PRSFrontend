@@ -9,11 +9,23 @@ export default {
       BirthReport: [],
       StatisticForm: [],
       refresh: false,
+      deathCount: 0,
+      patientsCount: 0,
+      datesPatients: [],
     };
   },
   mutations: {
+    setDatesPatients(state, payload) {
+      state.datesPatients = payload;
+    },
     setPatients(state, payload) {
       state.patients = payload;
+    },
+    setPatientCount(state, payload) {
+      state.patientsCount = payload;
+    },
+    setDeathCount(state, payload) {
+      state.deathCount = payload;
     },
     setRefresh(state, payload) {
       state.refresh = payload;
@@ -39,8 +51,17 @@ export default {
     },
   },
   getters: {
+    getDatesPatients(state) {
+      return state.datesPatients;
+    },
     patients(state) {
       return state.patients;
+    },
+    getPatientCount(state) {
+      return state.patientsCount;
+    },
+    getDeathCount(state) {
+      return state.deathCount;
     },
     refresh(state) {
       return state.refresh;
@@ -78,6 +99,41 @@ export default {
     },
   },
   actions: {
+    async countByDate(context, payload) {
+      try {
+        const response = await axios.post(payload.path, payload.value);
+        const result = response.data;
+        console.log(result);
+        context.commit(payload.mutation, result);
+      } catch (e) {
+        const error = new Error("something went wrong");
+        console.log(e);
+        throw error;
+      }
+    },
+    async fetchDataByDate(context, payload) {
+      try {
+        const response = await axios.post(payload.path, payload.value);
+        const fetchedPatients = response.data;
+        console.log(fetchedPatients);
+        const patients = [];
+        var counter = 0;
+        for (const object of fetchedPatients) {
+          counter++;
+          const patient = {
+            ...object,
+            row: counter,
+          };
+          patients.push(patient);
+        }
+        // console.log(users);
+        context.commit("setDatesPatients", patients);
+      } catch (e) {
+        const error = new Error("something went wrong !! Try again later ");
+        console.log(error);
+        throw error;
+      }
+    },
     async addPatient(context, patient) {
       try {
         const newPatient = patient;

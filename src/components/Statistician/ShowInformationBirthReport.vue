@@ -61,7 +61,11 @@
           <td>{{ BR.vitamin_k }}</td>
         </tr>
         <tr>
-          <td class="text-dark fw-bold">Baby Type</td>
+          <td class="text-dark fw-bold">Baby </td>
+          <td>{{ BR.baby_kind }}</td>
+        </tr>
+        <tr>
+          <td class="text-dark fw-bold">Baby Gender</td>
           <td>{{ BR.baby_type }}</td>
         </tr>
          <tr>

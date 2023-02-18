@@ -9,6 +9,7 @@ export default {
       statisticData: null,
       femaleCount: 0,
       maleCount: 0,
+      usersCount: 0,
     };
   },
   //mutations here set the variables in the state above
@@ -16,6 +17,9 @@ export default {
     //assign users array in local state to the fetched users from database
     setUsers(state, payload) {
       state.users = payload;
+    },
+    setUsersCount(state, payload) {
+      state.usersCount = payload;
     },
     //when adding new user we should push it to array of users in local state
     push(state, payload) {
@@ -41,6 +45,9 @@ export default {
     //return list of users
     users(state) {
       return state.users;
+    },
+    getUsersCount(state) {
+      return state.usersCount;
     },
     //return boolean value whether we have users in database or not
     hasUsers(state) {
@@ -104,6 +111,21 @@ export default {
         const error = new Error(
           "something went wrong on server !! Try again later "
         );
+        console.log(e);
+        throw error;
+      }
+    },
+    async countUsersByDate(context, payload) {
+      try {
+        const response = await axios.post(
+          `http://localhost:8000/api/user_start_end_date_count/`,
+          payload
+        );
+        const count = response.data;
+        console.log(count);
+        context.commit("setUsersCount", count);
+      } catch (e) {
+        const error = new Error("something went wrong");
         console.log(e);
         throw error;
       }
