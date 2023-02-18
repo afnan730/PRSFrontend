@@ -11,12 +11,12 @@ export default {
       refresh: false,
       deathCount: 0,
       patientsCount: 0,
-      datesPatients: [],
+      datesResult: [],
     };
   },
   mutations: {
-    setDatesPatients(state, payload) {
-      state.datesPatients = payload;
+    setDatesResult(state, payload) {
+      state.datesResult = payload;
     },
     setPatients(state, payload) {
       state.patients = payload;
@@ -51,8 +51,8 @@ export default {
     },
   },
   getters: {
-    getDatesPatients(state) {
-      return state.datesPatients;
+    getDatesResult(state) {
+      return state.datesResult;
     },
     patients(state) {
       return state.patients;
@@ -127,7 +127,7 @@ export default {
           patients.push(patient);
         }
         // console.log(users);
-        context.commit("setDatesPatients", patients);
+        context.commit("setDatesResult", patients);
       } catch (e) {
         const error = new Error("something went wrong !! Try again later ");
         console.log(error);

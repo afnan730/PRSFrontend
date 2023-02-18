@@ -42,7 +42,7 @@ export default {
   },
   computed: {
     DeathStates() {
-      return this.$store.getters["Statistician/getDatesPatients"];
+      return this.$store.getters["Statistician/getDatesResult"];
     },
     
   },
@@ -68,7 +68,7 @@ export default {
         this.errors = error.message || " Something went wrong!";
       }
       this.isLoading = false;
-       console.log(this.$store.getters['Statistician/getDatesPatients']);
+       console.log(this.$store.getters['Statistician/getDatesResult']);
     },
     view(id){
         // console.log(id);
