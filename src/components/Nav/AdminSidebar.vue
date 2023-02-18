@@ -30,13 +30,13 @@ export default {
         path:"/admin/dashboard"
       },
       {
-        label: "Manage users",
+        label: "Manage Users",
         icon: "manage_accounts",
         link:true,
         path:"/admin/viewusers"
       },
       {
-        label: "Add new user",
+        label: "Add New User",
         icon: "person_add",
         link:true,
          
