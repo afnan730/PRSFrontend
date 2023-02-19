@@ -53,7 +53,7 @@
                 
                 <div class="col-lg-12 col-md-12  col-sm-12 text-content ">
                     <p>
-                      It was opened in 1957 by Dr. Abdul Rahman Atabani, may God have mercy on him. Maternity Hospital Omdurman (Dayat) is the largest obstetrics and gynecology hospital in Sudan. The hospital is considered one of the best 1000 hospitals in Africa and the best in Sudan.
+                      It was opened in 1957 by Dr. Abdul Rahman Atabani, may God have mercy on him. Omdurman Maternity Hospital  (Dayat) is the largest obstetrics and gynecology hospital in Sudan. The hospital is considered one of the best 1000 hospitals in Africa and the best in Sudan.
                     </p>
                 </div>
             </div>
