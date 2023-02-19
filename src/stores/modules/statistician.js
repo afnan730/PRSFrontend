@@ -18,9 +18,13 @@ export default {
       newBorn: null,
       patientsCondition: null,
       maleFemaleCount: null,
+      yearlyPatientRate: [],
     };
   },
   mutations: {
+    setYearlyPatientsRate(state, payload) {
+      state.yearlyPatientRate = payload;
+    },
     setMaleFemaleCount(state, payload) {
       state.maleFemaleCount = payload;
     },
@@ -75,6 +79,9 @@ export default {
     },
   },
   getters: {
+    YearlyPatientsRate(state) {
+      return state.yearlyPatientRate;
+    },
     getNewBornStates(state) {
       return state.newBorn;
     },

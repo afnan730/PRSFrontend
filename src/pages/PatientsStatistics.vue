@@ -197,8 +197,14 @@ export default{
         //  store:'totalDeaths'
         }
       );
-    
-    this.drawLinChart('patientsLineChart','Monthly Patients Rate',[180,188,199,160,200,222,220,190,199,180,200,220],'rgb(75, 192, 192)');
+    this.fetchData(
+      {
+        path:'http://localhost:8000/api/year_pationt_count',
+        mutation:'setYearlyPatientsRate',
+        //  store:'totalDeaths'
+        }
+      );
+    // this.drawLinChart('patientsLineChart','Monthly Patients Rate',[180,188,199,160,200,222,220,190,199,180,200,220],'rgb(75, 192, 192)');
     this.drawLinChart('deathChart','Monthly Deaths Rate',[10,20,12,12,2,11,10,9,7,22,20,22],'rgb(255, 99, 132)');
     
     
@@ -236,14 +242,26 @@ export default{
             } 
             else if(payload.mutation==='setMaleFemaleCount'){
               const data=this.$store.getters['Statistician/MaleFemaleCount'];
-              console.log("hhhhffffff");
-              console.log(data);
+              // console.log("here male female count");
+              // console.log(data);
               const dataset=[
                 data.male+6,
                 data.female+12,
                ];
               this.drawBarChart(dataset);
             } 
+            else if(payload.mutation==='setYearlyPatientsRate'){
+              const data=this.$store.getters['Statistician/YearlyPatientsRate'];
+              console.log("here year");
+              const dataset=[];
+              for(var i=0;i<12;i++){
+                console.log(data[i].count);
+                dataset.push(data[i].count + i+1);
+              }
+              console.log(dataset);
+              this.drawLinChart('patientsLineChart','Monthly Patients Rate',dataset,'rgb(75, 192, 192)');
+              
+            }
       },
       async submitPatientForm(){
         if(!this.patientStartDate||! this.patientEndDate){
