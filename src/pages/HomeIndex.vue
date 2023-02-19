@@ -31,7 +31,7 @@
       <div class="row mt-5">
       <div class="col-6">
         <h1> Omdarman Maturity Hospital <br> Patient Record System</h1>
-        <p class="about-sys">Is a digital version of a patient’s paper chart.Which is real-time, patient-centered records that make information available instantly and securely to authorized users. 
+        <p class="about-sys">Is a digital version of a patient’s paper file.Which is real-time, patient-centered records that make information available instantly and securely to authorized users. 
     Contain a patient’s medical history, diagnoses, medications, treatment plans, immunization dates, allergies, and laboratory tests and results</p>
     <a href="/" class="btn btn-dark login" >Login Now</a>
       </div> 
@@ -53,7 +53,7 @@
                 
                 <div class="col-lg-12 col-md-12  col-sm-12 text-content ">
                     <p>
-                      It was opened in 1957 by Dr. Abdul Rahman Atabani, may God have mercy on him, at the hands of Dr. Abdul Rahman Atabani, may God have mercy on him. Maternity Hospital Omdurman (Days) is the largest obstetrics and gynecology hospital in Sudan. The hospital is considered one of the best 100 hospitals in the world and the best in the Arab world and Africa.
+                      It was opened in 1957 by Dr. Abdul Rahman Atabani, may God have mercy on him. Maternity Hospital Omdurman (Dayat) is the largest obstetrics and gynecology hospital in Sudan. The hospital is considered one of the best 1000 hospitals in Africa and the best in Sudan.
                     </p>
                 </div>
             </div>

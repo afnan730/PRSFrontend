@@ -203,7 +203,15 @@ import BaseCard from '@/components/UI/BaseCard.vue';
     
     created(){
       this.fetchPatients();
+      // this.fetchData(
+      // {
+      //   path:'http://localhost:8000/api/Newborn_status_count',
+      //   mutation:'setNewBorn',
+      //  store:'newBornstates'
+      //   }
+      // );
     },
+    
     methods:{
    
        async fetchPatients(){
@@ -360,7 +368,20 @@ import BaseCard from '@/components/UI/BaseCard.vue';
     capitalize(word){
       return word[0].toUpperCase()+word.slice(1).toLowerCase();
     }
-    }
+    // ,async fetchData(payload){
+            
+    //         try{
+    //           await this.$store.dispatch('Statistician/getStatistics',payload);
+    //         }
+    //         catch(error){
+    //           this.errors=error.message ||" Something went wrong!";
+    //         }
+            
+    //         // console.log(self.all_user)
+    //       //this.drawPieChart();  
+    //   },
+    },
+    
   }
 </script>
 

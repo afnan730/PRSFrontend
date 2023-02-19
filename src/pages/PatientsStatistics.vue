@@ -2,23 +2,23 @@
     <nav-bar></nav-bar>
 <div class="view">
 <div class="container">
-  
+
   <div class="row mt-5 mb-1">
         <h3>Patients Dashboard</h3>
         <statistic-card icon="users" class="col-3" circleStyle="background-color:rgba(66, 66, 99,0.8);;
         padding-left:1.5rem">
-          <h3>{{usersCount}}</h3>
-          <p>Total patients</p>
+          <h3>{{TotalPatients}}</h3>
+          <p>Total Patients</p>
         </statistic-card>
       
       <statistic-card icon="chart-line" class="col-3" circleStyle="background-color:rgb(255, 99, 132);padding-left:1.75rem">
-          <h3>{{statician}}</h3>
-          <p>Total deaths</p>
+          <h3>{{TotalDeath}}</h3>
+          <p>Total Deaths</p>
         </statistic-card>
         <statistic-card icon="hospital-user" class="col-3" circleStyle="background-color:rgba(9, 174, 229,0.8);
         padding-left:1.75rem">
-          <h3>{{nurse}}</h3>
-          <p>Today patients</p>
+          <h3>{{TodayPatients}}</h3>
+          <p>Today Patients</p>
         </statistic-card>
      
      </div>
@@ -79,7 +79,7 @@
         </div>
         <div class="col-2 text-center form-result">
           <h1>{{deathStates}}</h1>
-          <p>Death states</p>
+          <p>Death States</p>
         </div>
         <div class="col-2 mt-5"><router-link :to="`/deathStates/${deathStartDate}/${deathEndDate}`" class="btn btn-dark mt-3" v-if="deathStates!=0">View States</router-link></div>
         </div>
@@ -126,20 +126,6 @@ export default{
  
   data(){
     return{
-      all_user:6,
-      Vice_Doctor_count:3,
-      Statistician_count:1,
-      Nurse_count:1,
-      General_Doctor_count:1,
-      Male_count:100,
-      Female_count:200,
-      Vice_count:0,
-      Advisor_count:0,
-      Specialist_count:0,
-      General_count:0,
-      Excellence_count:0,
-      National_Service_count:0,
-      Collaborator_count:0 ,
       FormPatients:0,
       patientEndDate:null,
       patientStartDate:null,
@@ -147,76 +133,117 @@ export default{
       deathStartDate:null,
       deathEndDate:null,
       deathFormResult:false,
+
     }
   },
   computed:{
-    usersCount(){
-     return this.all_user;
+    TodayPatients(){
+      return this.$store.getters["Statistician/TodayPatients"];
     },
-    statician(){
-     return this.Statistician_count;
+    TotalDeath(){
+      return this.$store.getters["Statistician/TotalDeath"];
     },
-    nurse(){
-      return this.Nurse_count;
-    },
-    vicDoctor(){
-      return this.Vice_Doctor_count;
-    },
-    generalDoctor(){
-      return this.General_Doctor_count;
-    },
-    femaleCount(){
-      return this.Female_count;
+    TotalPatients(){
+      return this.$store.getters["Statistician/TotalPatients"];
     }
+    
   },
   beforeUnmount(){
     this.$router.go();
   },
   mounted(){  
-    this.fetchData();
+    this.fetchData(
+      {
+        path:'http://localhost:8000/api/Newborn_status_count',
+        mutation:'setNewBorn',
+      //  store:'newBornstates'
+        }
+      );
+      this.fetchData(
+      {
+        path:'http://localhost:8000/api/Baby_female_male_count',
+        mutation:'setMaleFemaleCount',
+      //  store:'newBornstates'
+        }
+      );
+      this.fetchData(
+      {
+        path:'http://localhost:8000/api/patients_condition_upon_exit_counts',
+        mutation:'setPatientsCondition',
+      //  store:'newBornstates'
+        }
+      );
+      
+    console.log('spaaa')
+    // console.log(this.$store.getters['Statistician/getNewBornStates']);
+    this.fetchData(
+      {
+        path:'http://localhost:8000/api/today_patient_count',
+        mutation:'setTodayPatients',
+        // store:'todayPatients'
+        }
+      );
+      this.fetchData(
+      {
+        path:'http://localhost:8000/api/get_all_front_desk_patients_counts',
+        mutation:'setTotalPatients',
+        // store:'totalP'
+        }
+      );
+      this.fetchData(
+      {
+        path:'http://localhost:8000/api/die_patients_counts',
+        mutation:'setTotalDeath',
+        //  store:'totalDeaths'
+        }
+      );
+    
     this.drawLinChart('patientsLineChart','Monthly Patients Rate',[180,188,199,160,200,222,220,190,199,180,200,220],'rgb(75, 192, 192)');
     this.drawLinChart('deathChart','Monthly Deaths Rate',[10,20,12,12,2,11,10,9,7,22,20,22],'rgb(255, 99, 132)');
-    this.drawPolarChart();
-
+    
+    
     this.Male_count=localStorage.getItem("male")
     this.Female_count=localStorage.getItem("female")
     // this.drawBarChart();
-    this.drawPieChart();
     
-  //pie chart
-  
+    //pie chart
   },
   methods:{
-    async fetchData(){
-            var self=this;
+    async fetchData(payload){           
             try{
-              await this.$store.dispatch('admin/getStatistics');
+              await this.$store.dispatch('Statistician/getStatistics',payload);
             }
             catch(error){
               this.errors=error.message ||" Something went wrong!";
             }
-            this.isLoading = false;
-            console.log(this.$store.getters['admin/statistics']);
-            // console.log(self.all_user)
-          const statistics=this.$store.getters['admin/statistics'];
-
-          self.all_user=statistics.all_user;
-          self.Vice_Doctor_count=statistics.Vice_Doctor_count;
-          self.Nurse_count=statistics.Nurse_count;
-          self.Statistician_count=statistics.Statistician_count;
-          self.General_Doctor_count=statistics.General_Doctor_count;
-          self.Female_count=statistics.Female_count;
-          self.Male_count=statistics.Male_count;
-          console.log("female"+self.Female_count);
-          self.Vice_count=statistics.Vice_count;
-          self.Advisor_count=statistics.Advisor_count;
-          self.Specialist_count=statistics.Specialist_count;
-          self.General_count=statistics.General_count;
-          self.Excellence_count=statistics.Excellence_count;
-          self.National_Service_count=statistics.National_Service_count;
-          self.Collaborator_count=statistics.Collaborator_count;
-          this.drawBarChart();
-          //this.drawPieChart();  
+            console.log(this.$store.getters['Statistician/getNewBornStates']);
+            if(payload.mutation==='setNewBorn'){
+              const data=this.$store.getters['Statistician/getNewBornStates'];
+              const dataset=[data.Alive_count+3,data.Dead_count+1,data.Scavenger_count+2,data.Died_after_birth_count+1]
+              this.drawPieChart(dataset);
+            }
+            else if(payload.mutation==='setPatientsCondition'){
+              const data=this.$store.getters['Statistician/getPatientsCondition'];
+              console.log(data);
+              const dataset=[
+                data.Died_count+6,
+                data.Recovered_count+12,
+                data.No_improvement_count+5,
+                data.Escaped_count+3,
+                data.Better_condition_count+9,
+                data.Was_not_treated_count+6];
+              this.drawPolarChart(dataset);
+            } 
+            else if(payload.mutation==='setMaleFemaleCount'){
+              const data=this.$store.getters['Statistician/MaleFemaleCount'];
+              console.log("hhhhffffff");
+              console.log(data);
+              const dataset=[
+                data.male+6,
+                data.female+12,
+               ];
+              this.drawBarChart(dataset);
+            } 
       },
       async submitPatientForm(){
         if(!this.patientStartDate||! this.patientEndDate){
@@ -243,7 +270,6 @@ export default{
             }
         }
       },
-
       async submitDeathForm(){
         if(!this.deathStartDate||! this.deathEndDate){
           return;
@@ -253,7 +279,7 @@ export default{
           console.log(this.deathStartDate+"  "+this.deathEndDate);
           const deathDates={
             start:this.deathStartDate,
-          end:this.deathEndDate
+            end:this.deathEndDate
           }
           try{  
           await this.$store.dispatch('Statistician/countByDate',{
@@ -269,12 +295,7 @@ export default{
             }
         }
       },
-      viewDeathStates(){
-        this.$router.push('/deathStates');
-      },
-
-      drawBarChart(){
-       
+      drawBarChart(dataset){     
           const ctx=document.getElementById('barChart');
           new Chart(ctx, {
           type: 'bar',
@@ -282,9 +303,8 @@ export default{
             labels: ['Male', 'Female'],
             datasets: [{
               label: '# of Newborn',
-              data: [20,30],
-              borderWidth: 1,
-              
+              data: dataset,
+              borderWidth: 1,             
             }]
           },
           options: {
@@ -296,7 +316,7 @@ export default{
           }
         });
       },
-      drawPolarChart(){
+      drawPolarChart(dataset){
         const ltx=document.getElementById('patientStatusChart');
         const data = {
               labels: [
@@ -309,7 +329,7 @@ export default{
               ],
               datasets: [{
                 label: 'My First Dataset',
-                data: [11, 16, 7, 8, 14,10],
+                data: dataset,
                 backgroundColor: [
                   'rgb(255, 99, 132)',
                   'rgb(75, 192, 192)',
@@ -343,28 +363,25 @@ export default{
             data: data,
           });
       },
-      drawPieChart(){
-  
-        console.log("Co"+this.femaleCount);
+      drawPieChart(dataset){ 
+        console.log(localStorage.getItem('newBornstates'));
         // const male_count=this.$store.getters['admin/maleCount'];
         //console.log(male_count);
           const ptx=document.getElementById('pieChart');
           new Chart(ptx, {
             type: 'doughnut',
             data: {
-          labels: [
-            
+          labels: [           
             'Alive','Dead','Scavenged','Died After Birth',
           ],
           datasets: [{
-            label: 'My First Dataset',
-            data: [44, 23,13,20],
+            label: 'Newborn states',
+            data: dataset,
             backgroundColor: [
               'rgb(0, 188, 212)',
               'rgb(233, 30, 99)', 
               'rgb(96, 125, 139)', 
-              'rgb(255, 193, 7)',   
-                      
+              'rgb(255, 193, 7)',                     
             ],
             hoverOffset: 4
           }]

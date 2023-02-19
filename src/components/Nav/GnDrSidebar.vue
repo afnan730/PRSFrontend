@@ -30,18 +30,8 @@ export default {
           children: [
             {
               label: "House Officer patient follow up",
-              children: [
-                {
-                  label: "Add new",
-                  path: "addnewFollowup",
-                  link: true,
-                },
-                {
-                  label: "House Officer follow up sheet",
-                  path: "houseOfficerFollowup",
-                  link: true,
-                },
-              ],
+              path: "addnewFollowup",
+              link: true,
             },
           ],
         },
@@ -50,11 +40,22 @@ export default {
           icon: "edit_off",
           children: [
             {
+              label:"General Doctor",
+              children:[
+                {
+                  label: "House Officer follow up sheet",
+                  path: "houseOfficerFollowup",
+                  link: true,
+                }
+
+              ]
+            },
+            {
               label: "Statistic",
 
               children: [
                 {
-                  label: "Health information & research",
+                  label: "Health Information & Research",
                   path: "healthInformationAndResearch",
                   link: true,
                 },

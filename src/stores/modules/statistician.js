@@ -12,9 +12,33 @@ export default {
       deathCount: 0,
       patientsCount: 0,
       datesResult: [],
+      TotalPatients: 4,
+      TotalDeath: 1,
+      TodayPatients: 1,
+      newBorn: null,
+      patientsCondition: null,
+      maleFemaleCount: null,
     };
   },
   mutations: {
+    setMaleFemaleCount(state, payload) {
+      state.maleFemaleCount = payload;
+    },
+    setNewBorn(state, payload) {
+      state.newBorn = payload;
+    },
+    setPatientsCondition(state, payload) {
+      state.patientsCondition = payload;
+    },
+    setTotalPatients(state, payload) {
+      state.TotalPatients = payload;
+    },
+    setTotalDeath(state, payload) {
+      state.TotalDeath = payload;
+    },
+    setTodayPatients(state, payload) {
+      state.TodayPatients = payload;
+    },
     setDatesResult(state, payload) {
       state.datesResult = payload;
     },
@@ -51,6 +75,24 @@ export default {
     },
   },
   getters: {
+    getNewBornStates(state) {
+      return state.newBorn;
+    },
+    MaleFemaleCount(state) {
+      return state.maleFemaleCount;
+    },
+    getPatientsCondition(state) {
+      return state.patientsCondition;
+    },
+    TotalPatients(state) {
+      return state.TotalPatients;
+    },
+    TotalDeath(state) {
+      return state.TotalDeath;
+    },
+    TodayPatients(state) {
+      return state.TodayPatients;
+    },
     getDatesResult(state) {
       return state.datesResult;
     },
@@ -319,6 +361,22 @@ export default {
         context.commit("setStatisticForm", StatisticForm);
       } catch (e) {
         const error = new Error("something went wrong !! Try again later ");
+        console.log(error);
+        throw error;
+      }
+    },
+    async getStatistics(context, payload) {
+      try {
+        const response = await axios.get(payload.path);
+
+        const data = response.data;
+        // console.log(response.data);
+        context.commit(payload.mutation, data);
+
+        // localStorage.setItem(payload.store, data);
+        // console.log(context.getters.getNewBornStates);
+      } catch (e) {
+        const error = new Error(" something went wrong ...");
         console.log(error);
         throw error;
       }
