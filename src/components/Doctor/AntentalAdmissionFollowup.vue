@@ -1,6 +1,6 @@
 <template>
   <div class="row mt-5 ms-3 text-center">
-    <h4 class="mt-5">Antenatal admission follow up sheet</h4>
+    <h4 class="mt-5">Antenatal Admission Follow-up Sheet</h4>
   </div>
   <div class="mt-3">
     <div v-if="isLoading">

@@ -12,7 +12,7 @@
       <thead class="table text-light text-start">
         <tr>
           <th class="col-5"></th>
-          <th class="col-5">Operation notes</th>
+          <th class="col-5">Operation Notes</th>
           <th class="col-5"></th>
         </tr>
       </thead>

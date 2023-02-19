@@ -1,6 +1,6 @@
 <template>
   <div class="row text-center mt-5 mb-3">
-    <h3 class="mt-3 ps-2">Labour ward admission</h3>
+    <h3 class="mt-3 ps-2">Labour Ward Admission</h3>
   </div>
   <base-card class="ps-5">
     <form @submit.prevent="validateData">

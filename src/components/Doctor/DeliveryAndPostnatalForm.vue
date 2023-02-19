@@ -1,6 +1,6 @@
 <template>
   <div class="row text-center mt-5 mb-3">
-    <h3 class="mt-3 ps-2">Delivery and postnatal</h3>
+    <h3 class="mt-3 ps-2">Delivery and Postnatal</h3>
   </div>
   <base-card class="ps-5">
     <form @submit.prevent="validateData">

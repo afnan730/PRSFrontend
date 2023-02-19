@@ -13,7 +13,7 @@
       <thead class="table text-light text-start">
         <tr>
           <th class="col-5"></th>
-          <th class="col-5">Labour ward admission</th>
+          <th class="col-5">Labour Ward Admission</th>
           <th class="col-5"></th>
         </tr>
       </thead>

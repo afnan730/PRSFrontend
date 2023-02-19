@@ -2,7 +2,7 @@
 
 <template>
   <div class="row mt-5 ms-3 text-center">
-    <h4 class="mt-5">Treatment order sheet</h4>
+    <h4 class="mt-5">Treatment Order Sheet</h4>
   </div>
   <div class="mt-3">
     <div v-if="isLoading">

@@ -1,7 +1,7 @@
 
 <template>
   <div class="row mt-5 ms-3">
-    <h4 class="header2 text-center mt-5 ms-1">Investigation request</h4>
+    <h4 class="header2 text-center mt-5 ms-1">Investigation Request</h4>
   </div>
   <div class="row text-center mt-5 ms-3">
     <div v-if="isLoading">

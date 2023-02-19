@@ -13,7 +13,7 @@
       <thead class="table text-light text-start">
         <tr>
           <th class="col-5"></th>
-          <th class="col-5">Obsterical History</th>
+          <th class="col-5">Obstetrical History</th>
           <th class="col-5"></th>
         </tr>
       </thead>

@@ -1,7 +1,7 @@
 
 <template>
   <div class="row mt-5 ms-3 text-center">
-    <h4 class="mt-5">Discharge Drugs details</h4>
+    <h4 class="mt-5">Discharge Drugs Details</h4>
   </div>
   <div class="mt-3">
     <div v-if="isLoading">

@@ -29,21 +29,21 @@ export default {
           icon: "edit",
           children: [
             {
-              label: "House Officer patient follow up",
+              label: "House Officer Patient Follow-up",
               path: "addnewFollowup",
               link: true,
             },
           ],
         },
         {
-          label: "Patient record",
+          label: "Patient Record",
           icon: "edit_off",
           children: [
             {
               label:"General Doctor",
               children:[
                 {
-                  label: "House Officer follow up sheet",
+                  label: "House Officer Follow-up Sheet",
                   path: "houseOfficerFollowup",
                   link: true,
                 }
@@ -60,17 +60,17 @@ export default {
                   link: true,
                 },
                 {
-                  label: "Statistic supplement",
+                  label: "Statistic Supplement",
                   path: "ShowStatisticSupplement",
                   link: true,
                 },
                 {
-                  label: "Birth report",
+                  label: "Birth Report",
                   path: "ShowBirthReport",
                   link: true,
                 },
                 {
-                  label: "Statistic form",
+                  label: "Statistic Form",
                   path: "ShowStatisicForm",
                   link: true,
                 },
@@ -81,12 +81,12 @@ export default {
 
               children: [
                 {
-                  label: "Nurse progress notes",
+                  label: "Nurse Progress Notes",
                   path: "viewprogress",
                   link: true,
                 },
                 {
-                  label: "Nurse observation form",
+                  label: "Nurse Observation Form",
                   path: "viewobservations",
                   link: true,
                 },
@@ -108,95 +108,95 @@ export default {
 
               children: [
                 {
-                  label: "Antenatal follow up",
+                  label: "Antenatal Follow-up",
                   path: "AntenatalFollowUp",
                   link: true,
                 },
                 {
-                  label: "Antenatal admission sheet",
+                  label: "Antenatal Admission Sheet",
                   path: "AntenatalAdmissionSheet",
                   link: true,
                 },
                 {
-                  label: "Antenatal admission follow-up",
+                  label: "Antenatal Admission Follow-up",
                   path: "AntentalAdmissionFollowup",
                   link: true,
                 },
                 {
-                  label: "Anticoagulation chart",
+                  label: "Anticoagulation Chart",
                   path: "viewanticoagulation",
                   link: true,
                 },
                 {
-                  label: "Blood products & IV fluids",
+                  label: "Blood Products & IV Fluids",
                   path: "BloodproductsAndIVfluids",
                   link: true,
                 },
                 {
-                  label: "Clinical discharge summary",
+                  label: "Clinical Discharge Summary",
                   path: "clinicalDischargeSummary",
                   link: true,
                 },
                 {
-                  label: "Delivery and postnatal",
+                  label: "Delivery and Postnatal",
                   path: "deliveryAndPostnatal",
                   link: true,
                 },
                 {
-                  label: "Discharge drugs",
+                  label: "Discharge Drugs",
                   path: "viewDischargeDrugs",
                   link: true,
                 },
                 {
-                  label: "Doctor progress notes",
+                  label: "Doctor Progress Notes",
                   path: "doctorProgressNotes",
                   link: true,
                 },
                 {
-                  label: "Hematology results",
+                  label: "Hematology Results",
                   path: "haematologyResults",
                   link: true,
                 },
                 {
-                  label: "Investigation request form",
+                  label: "Investigation Request Form",
                   path: "investigationRequestSheet",
                   link: true,
                 },
                 {
-                  label: "Labour record",
+                  label: "Labour Record",
                   path: "LabourRecords",
                   link: true,
                 },
                 {
-                  label: "Labour ward admission",
+                  label: "Labour Ward Admission",
                   path: "LabourWardAdmission",
                   link: true,
                 },
 
                 {
-                  label: "Labour ward instructions",
+                  label: "Labour Ward Instructions",
                   path: "labourWardInstructions",
                   link: true,
                 },
                 {
-                  label: "Obsterical history",
+                  label: "Obsterical History",
                   path: "obstericalHistory",
                   link: true,
                 },
                 {
-                  label: "Operation notes",
+                  label: "Operation Notes",
                   path: "operationNotes",
                   link: true,
                 },
 
                 {
-                  label: "Regular drugs",
+                  label: "Regular Drugs",
                   path: "regularDrugs",
                   link: true,
                 },
 
                 {
-                  label: "Treatment order sheet",
+                  label: "Treatment Order Sheet",
                   path: "treatmentOrderSheet",
                   link: true,
                 },

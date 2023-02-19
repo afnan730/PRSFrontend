@@ -205,7 +205,7 @@ export default{
         }
       );
     // this.drawLinChart('patientsLineChart','Monthly Patients Rate',[180,188,199,160,200,222,220,190,199,180,200,220],'rgb(75, 192, 192)');
-    this.drawLinChart('deathChart','Monthly Deaths Rate',[10,20,12,12,2,11,10,9,7,22,20,22],'rgb(255, 99, 132)');
+    this.drawLinChart('deathChart','Deaths States Count',[10,20,12,12,2,11,10,9,7,22,20,22],'rgb(255, 99, 132)');
     
     
     this.Male_count=localStorage.getItem("male")
@@ -259,7 +259,7 @@ export default{
                 dataset.push(data[i].count + i+1);
               }
               console.log(dataset);
-              this.drawLinChart('patientsLineChart','Monthly Patients Rate',dataset,'rgb(75, 192, 192)');
+              this.drawLinChart('patientsLineChart','Patients Count',dataset,'rgb(75, 192, 192)');
               
             }
       },
@@ -346,7 +346,7 @@ export default{
                 'Not treated'
               ],
               datasets: [{
-                label: 'My First Dataset',
+                label: 'States',
                 data: dataset,
                 backgroundColor: [
                   'rgb(255, 99, 132)',

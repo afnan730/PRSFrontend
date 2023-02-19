@@ -229,7 +229,7 @@ export default{
             'Female','Male',
           ],
           datasets: [{
-            label: 'My First Dataset',
+            label: 'Users Count',
             data: [self.Female_count, self.Male_count],
             backgroundColor: [
               'rgb(255, 99, 132)',

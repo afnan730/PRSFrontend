@@ -1,7 +1,7 @@
 
 <template>
   <div class="row mt-3  text-center">
-    <h4 class="header2 mt-5">Investigation request</h4>
+    <h4 class="header2 mt-5">Investigation Request</h4>
   </div>
   <div class=" mt-2">
     <base-card>

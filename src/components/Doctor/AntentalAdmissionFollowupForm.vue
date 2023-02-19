@@ -1,7 +1,7 @@
 <template>
   <div class="ms-5">
     <div class="row mt-3 ms-3 text-center">
-      <h4 class="header2 mt-5">Add Antental Admission FollowUp</h4>
+      <h4 class="header2 mt-5">Add Antental Admission Follow-up</h4>
     </div>
     <div class="row w-100 forms mt-2 p-3 ms-4 me-5">
       <base-card class="mt-2">

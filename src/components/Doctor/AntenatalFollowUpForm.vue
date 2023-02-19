@@ -1,6 +1,6 @@
 <template>
   <div class="row mt-3 ms-3 text-center">
-    <h4 class="header2 mt-5">Add new antenatal follow up</h4>
+    <h4 class="header2 mt-5">Add New Antenatal Follow-up</h4>
   </div>
   <div class="forms mt-2 p-3 ms-4 me-5 w-100">
     <base-card>

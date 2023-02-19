@@ -119,7 +119,7 @@
                 </div>
                 <div class="modal-body">
                   <form action="#" @submit.prevent="validateData">
-                      <div class="row ps-3 pt-2">
+                      <div class="row ps-3 pt-2 text-start">
                         <div class="col-md-4">
                           <label for="" class="mb-3">First name</label>
                           <input
@@ -534,8 +534,8 @@ import BaseCard from '../UI/BaseCard.vue';
         background-color: #54415b;
         color:white;
     }
-    .form-control{
-        height: 3rem;
+    .form-control , .form-select{
+        height: 2.7rem;
     }
     .modalBody{
       margin-left: 0;
