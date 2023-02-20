@@ -144,8 +144,8 @@
         </tbody>
   </table>
 
-  <div v-else-if="!hasPatients && !errors && searchTrigger" class="alert alert-primary h5 mt-5 text-center" role="alert" >
-        No patients to to show
+  <div v-else-if="!hasPatients && !errors && searchTrigger" class=" mt-5 text-center"  >
+        <img class="img-fluid" style="max-height:700px;" src="../assets/no.png" alt="" />
   </div> 
 
   <div v-else-if="errors" class="alert alert-danger h5 mt-5 text-center" role="alert" >

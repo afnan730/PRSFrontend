@@ -1,6 +1,6 @@
 <template>
   <div class="row mt-5 ms-3">
-    <h4 class="header2 mt-5 ms-1">Nurse I.V.Fluids notes</h4>
+    <h4 class="header2 mt-5 ms-1">Nurse I.V.Fluids Notes</h4>
   </div>
   <div class="row text-center mt-5 ms-3">
     <div v-if="isLoading">

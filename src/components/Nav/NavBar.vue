@@ -59,6 +59,7 @@ export default{
 <style scoped>
 .navbar{
   z-index: 90;
+  background-color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
 }
 .less{

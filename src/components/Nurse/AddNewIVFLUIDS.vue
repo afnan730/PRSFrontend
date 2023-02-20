@@ -1,6 +1,6 @@
 <template>
   <div class="row text-center mt-5">
-    <h3 class="header2 mt-3">Add new I.V.FLUIDS note</h3>
+    <h3 class="header2 mt-3">Add New I.V.FLUIDS Note</h3>
   </div>
   <div class="forms mt-2 p-3 ms-4 me-5 w-100">
     <base-card>

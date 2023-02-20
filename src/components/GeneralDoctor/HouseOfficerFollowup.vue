@@ -16,7 +16,7 @@
           <th scope="col">FHR</th>
           <th scope="col">Urine</th>
           <th scope="col">Remarks</th>
-          <th scope="col">Dr Name</th>
+          <th scope="col">Doctor ID</th>
         </tr>
       </thead>
       <tbody class="text-center">

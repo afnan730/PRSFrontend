@@ -12,7 +12,7 @@
       <thead class="table text-light text-start">
         <tr>
           <th class="col-5"></th>
-          <th class="col-5">Nurse Observation notes</th>
+          <th class="col-5">Nurse Observation Notes</th>
         </tr>
       </thead>
       <tbody class="text-start">

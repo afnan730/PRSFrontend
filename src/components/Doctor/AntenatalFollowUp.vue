@@ -21,7 +21,7 @@
           <th scope="col">Urine</th>
           <th scope="col">Comment</th>
           <th scope="col">Next visit</th>
-          <th scope="col">Dr ID</th>
+          <th scope="col">Doctor ID</th>
         </tr>
       </thead>
       <tbody class="text-center">

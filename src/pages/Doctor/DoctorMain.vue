@@ -31,8 +31,8 @@ export default {
   
   <style scoped>
 .mainContainer {
-  /* background-color: #f5f1f4; */
-  background-color: rgb(250, 249, 255);
+  background-color: #f5f1f4;
+  /* background-color: rgb(250, 249, 255); */
   min-height: 100vh;
   min-width: 100vw;
   margin: 0;

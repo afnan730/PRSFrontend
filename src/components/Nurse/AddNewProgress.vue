@@ -1,7 +1,7 @@
 <template>
   <div class="row w-100 forms mt-5 p-3 ms-4 me-5">
     <base-card>
-      <h3 class="header2 text-center mb-5">Add new note</h3>
+      <h3 class="header2 text-center mb-5">Add New Note</h3>
 
       <form action="#" @submit.prevent="validateData">
         <div class="row ps-5">

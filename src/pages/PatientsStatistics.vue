@@ -413,7 +413,8 @@ export default{
 <style scoped>
 .view{
   height: 100vh;
-  background-color: rgb(250, 249, 255);
+  background-color: white;
+  /* background-color: rgb(250, 249, 255); */
   margin-top:-2rem;
   padding-top:2rem  ;
    overflow-x:hidden;
