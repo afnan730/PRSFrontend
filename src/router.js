@@ -77,6 +77,7 @@ import PatientsStatistics from "./pages/PatientsStatistics.vue";
 import DeathStates from "./pages/DeathStates.vue";
 import PatientView from "./pages/PatientsView.vue";
 import HomeIndex from "./pages/HomeIndex.vue";
+import UserSearch from "./pages/UserSearch.vue";
 //view record pages
 const houseOfficerFollowup = {
   path: "houseOfficerFollowup",
@@ -215,6 +216,11 @@ const router = createRouter({
     {
       path: "/statistics",
       component: PatientsStatistics,
+      meta: { requireAuth: true },
+    },
+    {
+      path: "/usersearch",
+      component: UserSearch,
       meta: { requireAuth: true },
     },
     {

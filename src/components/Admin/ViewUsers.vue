@@ -294,9 +294,10 @@
   </tbody>
 
 </table>
-<base-card v-else-if="!hasUsers && !errors" >
-  <h5 class="text-center">No users to to show</h5>
-</base-card>
+<div v-else-if="!hasUsers && !errors " class=" mt-5 text-center"  >
+        <img class="img-fluid" style="max-height:700px;" src="../../assets/no.png" alt="" />
+  </div> 
+
 <base-card v-else >
   <h5 class="text-center">{{errors}}</h5>
 </base-card>

@@ -9,6 +9,7 @@
             <div>
               <a href="/patientsearch" class="navbar-brand" v-if="!isAdmin">Home</a>
               <a href="/statistics" class="navbar-brand " style="margin-left:1rem" v-if="!isAdmin">Statistics</a>
+              <a href="/usersearch" class="navbar-brand " style="margin-left:1rem" v-if="!isAdmin">Users</a>
             </div>
             
             <!-- Button trigger modal -->

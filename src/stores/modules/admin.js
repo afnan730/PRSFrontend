@@ -158,6 +158,33 @@ export default {
         throw error;
       }
     },
+    async searchById(context, payload) {
+      try {
+        const national_id = payload;
+        const response = await axios.get(
+          `http://localhost:8000/api/get_users/${national_id}`
+        );
+
+        const searchResult = response.data;
+        // console.log(searchResult.length);
+        const users = [];
+        var counter = 0;
+        for (const object of searchResult) {
+          counter++;
+          const user = {
+            ...object,
+            row: counter,
+          };
+          users.push(user);
+        }
+        // console.log(users);
+        context.commit("setUsers", users);
+      } catch (e) {
+        const error = new Error("something went wrong");
+        console.log(e);
+        throw error;
+      }
+    },
     // the control logic of deleting user recieve the user id to delete user
     async delete(_, userId) {
       try {
