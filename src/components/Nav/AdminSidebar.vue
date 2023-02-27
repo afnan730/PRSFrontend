@@ -62,8 +62,12 @@ export default {
   margin: 0px;
   max-width: 350px;
   height: 100vh;
-  background: linear-gradient(156deg,#2b2028, rgb(46, 40, 45) 0%, #64415b 100%),
-    #64415b;
+  /* background: linear-gradient(156deg,#2b2028, rgb(46, 40, 45) 0%, #64415b 100%),
+    #64415b; */
+    background: #3f535f;
+    /* background: #254b72; */
+    /* background:linear-gradient(156deg,#263238, rgb(35, 50, 59) 0%, #456f8b 100%),
+    #456f8b; */
   border-right: 1px solid #ececec;
   transition: all 0.3s ease;
   overflow: auto;
@@ -93,7 +97,7 @@ export default {
 }
 .sidebar-logo {
   margin-left: 1.25rem;
-  width: 70%;
+  width: 80%;
 }
 
 

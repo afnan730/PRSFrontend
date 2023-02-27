@@ -95,7 +95,7 @@ export default {
             },
             
             {
-              label: "Labour Waard Admission",
+              label: "Labour Ward Admission",
               path: "LabourWardAdmissionForm",
                   link: true,
             },

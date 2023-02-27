@@ -263,7 +263,7 @@ export default{
 }
 .left-icon{
   font-size:40px;
-  color:#64415b;
+  color:#3f535f;
   margin-left:14rem;
   margin-top:2.7rem
 }
@@ -271,13 +271,13 @@ export default{
   margin-left: -6%;
 }
 .form-result h1{
-  color:#5e4056 ;
+  color:#3f535f ;
   font-size: 3rem;
   margin-bottom: 2px;
 }
 .form-result p{
   font-weight: 700;
-  color: #64415b;
+  color: #3f535f;
 }
 .space{
   width:5rem;

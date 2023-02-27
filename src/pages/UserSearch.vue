@@ -16,7 +16,7 @@
     <table v-else-if="searchTrigger && hasUsers" class="table">
   <thead class="text-center">
     <tr >
-      <th scope="col">ID</th>
+      <!-- <th scope="col">ID</th> -->
       <th scope="col">NAME</th>
       <th scope="col">DESIGNATION</th>
        <th scope="col">MOBILE</th>
@@ -27,7 +27,7 @@
   
   <tbody class="text-center">
     <tr v-for="user in users" :key="user.id">
-      <th scope="row">{{user.row}}</th>
+      <!-- <th scope="row">{{user.row}}</th> -->
       <td>{{user.first_name}} {{user.last_name}} </td>
       <td>{{user.designation}}</td>
       <td>{{user.phone_number}}</td>

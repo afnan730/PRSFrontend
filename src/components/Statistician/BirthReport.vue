@@ -187,7 +187,7 @@
             <div class="form-check form-check-inline ms-5">
               <input
                 class="form-check-input"
-                type="checkbox"
+                type="radio"
                 id="inlineCheckbox4"
                 value="Single"
                 @change="clearError('babyKind')"
@@ -200,7 +200,7 @@
             <div class="form-check form-check-inline">
               <input
                 class="form-check-input"
-                type="checkbox"
+                type="radio"
                 id="inlineCheckbox5"
                 value="Twins"
                 @change="clearError('babyKind')"
@@ -278,7 +278,16 @@ export default {
    computed:{
     checkError(){
       return this.error;
-    }
+    },
+    // isMale(){
+
+    // },
+    // isFemale(){
+
+    // },
+    // isTwins(){
+
+    // }
   },
   // async beforeCreate(){
   //   const id=this.$route.params.patientId;
@@ -372,7 +381,7 @@ export default {
           vitamin_k: this.vitaminK.value,
           token: this.token.value.join(),
           baby_type: this.baby.value.join(),
-          baby_kind:this.babyKind.value.join(),
+          baby_kind:this.babyKind.value,
        }
         console.log(birthReport);
         try{

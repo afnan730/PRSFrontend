@@ -7,15 +7,24 @@
     <form action="#" @submit.prevent="validateData">
       <div class="row ps-3 pt-2">
         <div class="col-md-4">
-          <label for="" class="mb-3">First name</label>
+          <label for="" class="mb-3">Full Name</label>
           <input
             type="text"
             class="mb-4 form-control"
-            :class="{ invalid: !firstName.isValid }"
-            v-model.trim="firstName.value"
-            @change="clearError('firstName')"
+            :class="{ invalid: !fullName.isValid }"
+            v-model.trim="fullName.value"
+            @change="clearError('fullName')"
           />
-          <p v-if="!firstName.isValid">First name should be a valid name</p>
+          <p v-if="!fullName.isValid">Full name should contain at least 4 words</p>
+          <!-- <label for="" class="mb-3">Fourth name</label>
+          <input
+            type="text"
+            class="mb-4 form-control"
+            :class="{ invalid: !fourthName.isValid }"
+            v-model.trim="fourthName.value"
+            @change="clearError('fourthName')"
+          />
+          <p v-if="!fourthName.isValid">Fourth name should be a valid name</p> -->
           <label for="" class="mb-3">National ID\Passport No</label>
           <input
             type="text"
@@ -41,15 +50,15 @@
           <p v-if="!designation.isValid">Please select the designation</p>
         </div>
         <div class="col-md-4">
-          <label for="" class="mb-3">Last name</label>
+          <!-- <label for="" class="mb-3">Second name</label>
           <input
             type="text"
             class="mb-4 form-control"
-            :class="{ invalid: !lastName.isValid }"
-            v-model.trim="lastName.value"
-            @change="clearError('lastName')"
+            :class="{ invalid: !secondName.isValid }"
+            v-model.trim="secondName.value"
+            @change="clearError('secondName')"
           />
-          <p v-if="!lastName.isValid">Last name should be a valid name</p>
+          <p v-if="!secondName.isValid">Second name should be a valid name</p> -->
 
           <label for="" class="mb-3">Phone number</label>
           <input
@@ -77,8 +86,28 @@
             <option value="Collaborator">Collaborator</option>
           </select>
           <p v-if="!status.isValid">Please select the status</p>
+          
+
+          <label for="" class="mb-3">Password</label>
+          <input
+            type="text"
+            class="mb-4 form-control"
+            :class="{ invalid: !password.isValid }"
+            v-model.trim="password.value"
+            @change="clearError('password')"
+          />
+          <p v-if="!password.isValid">Password should be minimum eight characters, at least one letter and one number</p>
         </div>
         <div class="col-md-4">
+          <!-- <label for="" class="mb-3">Third name</label>
+          <input
+            type="text"
+            class="mb-4 form-control"
+            :class="{ invalid: !thirdName.isValid }"
+            v-model.trim="thirdName.value"
+            @change="clearError('thirdName')"
+          />
+          <p v-if="!thirdName.isValid">Third name should be a valid name</p> -->
           <label for="" class="mb-3">Nationality</label>
           <input
             type="text"
@@ -99,21 +128,11 @@
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
-          <p v-if="!gender.isValid">Please select the status</p>
-
-          <label for="" class="mb-3">Password</label>
-          <input
-            type="text"
-            class="mb-4 form-control"
-            :class="{ invalid: !password.isValid }"
-            v-model.trim="password.value"
-            @change="clearError('password')"
-          />
-          <p v-if="!password.isValid">Password should be minimum eight characters, at least one letter and one number</p>
+         
         </div>
       </div>
       <div class="ps-3">
-        <base-button data-bs-toggle="modal" data-bs-target="#exampleModal" width="expand" class="mt-4">Save</base-button>
+        <base-button data-bs-toggle="modal" style="background-color:#3f4f5f" data-bs-target="#exampleModal" width="expand" class="mt-4">Save</base-button>
       </div>
        
     </form>
@@ -124,7 +143,7 @@
 export default {
   //list of variables required to store a new user data 
   //include:
-  // firstName,
+  // fullName,
   // lastName,
   // nationality,
   //  phoneNumber, 
@@ -134,8 +153,10 @@ export default {
   data() {
     return {
       error:null,
-      firstName: { value: "", isValid: true },
-      lastName: { value: "", isValid: true },
+      fullName: { value: "", isValid: true },
+      // secondName: { value: "", isValid: true },
+      // thirdName: { value: "", isValid: true },
+      // fourthName: { value: "", isValid: true },
       nationality: { value: "", isValid: true },
       nationalID: { value: "", isValid: true },
       phoneNumber: { value: "", isValid: true },
@@ -158,16 +179,25 @@ export default {
     //validate the form data when adding new user
     validateData() {
       this.formIsValid = true;
-      var name=/^[a-z ,.'-]+$/i;
-      if (this.firstName.value === "" ||!this.firstName.value.match(name) ) {
-        this.firstName.isValid = false;
+      console.log(this.fullName);
+      var name=/^\w+(?: \w+){3,}$/i;
+      if (this.fullName.value === "" ||!this.fullName.value.match(name) ) {
+        this.fullName.isValid = false;
         this.formIsValid = false;
       }
      
-      if (this.lastName.value === "" ||!this.lastName.value.match(name)) {
-        this.lastName.isValid = false;
-        this.formIsValid = false;
-      }
+      // if (this.secondName.value === "" ||!this.secondName.value.match(name)) {
+      //   this.secondName.isValid = false;
+      //   this.formIsValid = false;
+      // }
+      //  if (this.thirdName.value === "" ||!this.thirdName.value.match(name)) {
+      //   this.thirdName.isValid = false;
+      //   this.formIsValid = false;
+      // }
+      //  if (this.fourthName.value === "" ||!this.fourthName.value.match(name)) {
+      //   this.fourthName.isValid = false;
+      //   this.formIsValid = false;
+      // }
       var country=/^[a-zA-Z]{5,}$/;
       if (this.nationality.value === "" ||!this.nationality.value.match(country)) {
         this.nationality.isValid = false;
@@ -210,13 +240,13 @@ export default {
         return;
       } else {
         // in case the enterd data is full
-        this.firstName.value=this.capitalize(this.firstName.value);
-        this.lastName.value=this.capitalize(this.lastName.value);
+        this.fullName.value=this.capitalize(this.fullName.value);
+        // this.lastName.value=this.capitalize(this.lastName.value);
        this.nationality.value=this.capitalize(this.nationality.value);
         // user object stores the data from the form
        const user={
-        first_name:this.firstName.value,
-        last_name:this.lastName.value,
+        full_name:this.fullName.value,
+        // last_name:this.lastName.value,
         nationality:this.nationality.value,
   
         national_id:this.nationalID.value,
@@ -227,7 +257,7 @@ export default {
         password:this.password.value,
         user_id:localStorage.getItem("userId"),
        }
-        //console.log(user);
+        console.log(user);
         //send the user data to admin module which in return manipulate database
         try{
         await this.$store.dispatch('admin/addUser',user);

@@ -72,7 +72,7 @@ export default {
        console.log(this.$store.getters['Statistician/getDatesResult']);
     },
     view(id){
-        // console.log(id);
+        // when pressing view button display the page according to user role 
         const actor=localStorage.getItem('actor');
         if(actor==="Statistician" ||actor==="statistician"){
          

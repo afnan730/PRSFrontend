@@ -37,7 +37,7 @@
                             :class="{invalid: !patientName.isValid}" 
                             v-model.trim='patientName.value'
                            @change="clearError('patientName')">
-                            <p v-if="!patientName.isValid">Patient name should be a valid name</p>
+                            <p v-if="!patientName.isValid">Patient name should contain at least four words</p>
                             <label for="" class="d-block mb-3">Age</label>
                             <input type="number" class="mb-3 form-control" 
                             :class="{invalid: !age.isValid}" 
@@ -271,7 +271,7 @@ import BaseCard from '@/components/UI/BaseCard.vue';
     validateData() {
       this.formIsValid=true;
       this.error='';
-      var name=/^[a-z ,.'-]+$/i;
+      var name=/^\w+(?: \w+){3,}$/i;
       if(this.patientName.value==="" || !this.patientName.value.match(name)){
         this.patientName.isValid=false;
         this.formIsValid=false;

@@ -25,7 +25,7 @@
   <tbody class="text-center">
     <tr v-for="user in users" :key="user.id">
       <th scope="row">{{user.row}}</th>
-      <td>{{user.first_name}} {{user.last_name}} </td>
+      <td>{{user.full_name}} </td>
       <td>{{user.designation}}</td>
       <td>{{user.phone_number}}</td>
       <td>{{user.national_id}}</td>
@@ -47,7 +47,7 @@
                       <h5>Name</h5>
                     </div>
                     <div class="info">
-                      {{selectedUser.first_name}} {{selectedUser.last_name}}
+                      {{selectedUser.full_name}} 
                     </div>
                     <div class="mt-3">
                       <h5>Gender</h5>
@@ -114,23 +114,23 @@
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Update {{selectedUser.first_name}} {{selectedUser.last_name}} Account information</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Update {{selectedUser.full_name}} Account information</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <form action="#" @submit.prevent="validateData">
                       <div class="row ps-3 pt-2 text-start">
                         <div class="col-md-4">
-                          <label for="" class="mb-3">First name</label>
+                          <label for="" class="mb-3">Full name</label>
                           <input
                             type="text"
                             class="mb-4 form-control"
-                            :placeholder="selectedUser.first_name"
-                            :class="{ invalid: !firstName.isValid }"
-                            v-model.trim="selectedUser.first_name"
-                            @change="clearError('firstName')"
+                            :placeholder="selectedUser.full_name"
+                            :class="{ invalid: !fullName.isValid }"
+                            v-model.trim="selectedUser.full_name"
+                            @change="clearError('fullName')"
                           />
-                          <p v-if="!firstName.isValid">First name should be valid name</p>
+                          <p v-if="!fullName.isValid">Full name should at least contains 4 words</p>
                           <label for="" class="mb-3">National ID\Passport No</label>
                           <input
                             type="text"
@@ -158,7 +158,7 @@
                           <p v-if="!designation.isValid">Please select the designation</p>
                         </div>
                         <div class="col-md-4">
-                          <label for="" class="mb-3">Last name</label>
+                          <!-- <label for="" class="mb-3">Last name</label>
                           <input
                             type="text"
                             class="mb-4 form-control"
@@ -167,7 +167,7 @@
                             v-model.trim="selectedUser.last_name"
                             @change="clearError('lastName')"
                           />
-                          <p v-if="!lastName.isValid">Last name should be valid name</p>
+                          <p v-if="!lastName.isValid">Last name should be valid name</p> -->
 
                           <label for="" class="mb-3">Phone number</label>
                           <input
@@ -255,7 +255,7 @@
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">{{modalHead}}</h5>
+                  <h5 class="modal-title fw-bold">{{modalHead}}</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -320,8 +320,8 @@ import BaseCard from '../UI/BaseCard.vue';
         selectedUser:{ },
 //update user
         error:'',
-        firstName: { value: "", isValid: true },
-        lastName: { value: "", isValid: true },
+        fullName: { value: "", isValid: true },
+        // lastName: { value: "", isValid: true },
         nationality: { value: "", isValid: true },
         nationalID: { value: "", isValid: true },
         phoneNumber: { value: "", isValid: true },
@@ -402,7 +402,7 @@ import BaseCard from '../UI/BaseCard.vue';
         else{
           this.admin=false;
           this.modalHead="Confirm";
-          this.modalBody="Are you sure you want to delete "+user.first_name+ " ?";
+          this.modalBody="Are you sure you want to delete "+user.full_name+ " ?";
           this.userId=user.id;
           console.log(this.userId)
         }
@@ -440,16 +440,16 @@ import BaseCard from '../UI/BaseCard.vue';
     validateData(ID) {
       this.formIsValid = true;
       this.error='';
-      var name=/^[a-z ,.'-]+$/i;
-      if (this.selectedUser.first_name === "" ||!this.selectedUser.first_name.match(name)) {
-        this.firstName.isValid = false;
+      var name=/^\w+(?: \w+){3,}$/i;
+      if (this.selectedUser.full_name === "" ||!this.selectedUser.full_name.match(name)) {
+        this.fullName.isValid = false;
         this.formIsValid = false;
       }
      
-      if (this.selectedUser.last_name === "" ||!this.selectedUser.last_name.match(name)) {
-        this.lastName.isValid = false;
-        this.formIsValid = false;
-      }
+      // if (this.selectedUser.last_name === "" ||!this.selectedUser.last_name.match(name)) {
+      //   this.lastName.isValid = false;
+      //   this.formIsValid = false;
+      // }
       var country=/^[a-zA-Z]{5,}$/;
       if (this.selectedUser.nationality=== "" ||!this.selectedUser.nationality.match(country)) {
         this.nationality.isValid = false;
@@ -493,13 +493,13 @@ import BaseCard from '../UI/BaseCard.vue';
         return;
       } else {
         
-        this.selectedUser.first_name=this.capitalize(this.selectedUser.first_name);
-        this.selectedUser.last_name=this.capitalize(this.selectedUser.last_name);
+        this.selectedUser.full_name=this.capitalize(this.selectedUser.full_name);
+        // this.selectedUser.last_name=this.capitalize(this.selectedUser.last_name);
        this.selectedUser.nationality=this.capitalize(this.selectedUser.nationality);
         //console.log(this.lastName.value);
        const user={
         id:ID,
-        first_name:this.selectedUser.first_name,
+        full_name:this.selectedUser.full_name,
         last_name: this.selectedUser.last_name,
         nationality:this.selectedUser.nationality,
         national_id:this.selectedUser.national_id,
@@ -532,7 +532,7 @@ import BaseCard from '../UI/BaseCard.vue';
 
 <style  scoped>
     thead{
-        background-color: #54415b;
+        background-color: #3f4f5f;
         color:white;
     }
     .form-control , .form-select{

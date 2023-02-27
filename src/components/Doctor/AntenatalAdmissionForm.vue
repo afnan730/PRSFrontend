@@ -233,19 +233,19 @@ export default {
       return this.error;
     }
   },
-   async beforeCreate(){
-    const id=this.$route.params.patientId;
-     try {
-        await this.$store.dispatch("doctor/fetchAntenatalAdmissionSheet",id);
-      } catch (error) {
-        this.errors = error.message || " Something went wrong!";
-      }
-      const exist = this.$store.getters['doctor/hasAntenatalAdmissionSheet'];
-      if(exist){
-        this.$router.replace(`/doctor/${id}/AntenatalAdmissionSheet`);
-      }
+  //  async beforeCreate(){
+  //   const id=this.$route.params.patientId;
+  //    try {
+  //       await this.$store.dispatch("doctor/fetchAntenatalAdmissionSheet",id);
+  //     } catch (error) {
+  //       this.errors = error.message || " Something went wrong!";
+  //     }
+  //     const exist = this.$store.getters['doctor/hasAntenatalAdmissionSheet'];
+  //     if(exist){
+  //       this.$router.replace(`/doctor/${id}/AntenatalAdmissionSheet`);
+  //     }
 
-  },
+  // },
   methods: {
     clearError(input){
                 this[input].isValid=true;
