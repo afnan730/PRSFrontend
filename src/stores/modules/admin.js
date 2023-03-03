@@ -93,7 +93,7 @@ export default {
         context.commit("setUsers", users);
       } catch (e) {
         const error = new Error("something went wrong !! Try again later ");
-        console.log(error);
+        console.log(e);
         throw error;
       }
     },
@@ -108,9 +108,12 @@ export default {
         console.log(response);
         context.commit("push", payload);
       } catch (e) {
-        const error = new Error(
+        var error = new Error(
           "something went wrong on server !! Try again later "
         );
+        if (e.message === "Request failed with status code 500") {
+          error = new Error("Seem likes this ID is already in use.");
+        }
         console.log(e);
         throw error;
       }

@@ -179,6 +179,7 @@ export default {
     //validate the form data when adding new user
     validateData() {
       this.formIsValid = true;
+      this.error=null;
       console.log(this.fullName);
       var name=/^\w+(?: \w+){3,}$/i;
       if (this.fullName.value === "" ||!this.fullName.value.match(name) ) {

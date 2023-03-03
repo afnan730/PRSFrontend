@@ -11,7 +11,6 @@
       <thead class="text-center">
         <tr>
           <th scope="col">Date and Time</th>
-
           <th scope="col">B.P</th>
           <th scope="col">F.L</th>
           <th scope="col">Pres</th>
