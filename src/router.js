@@ -205,9 +205,9 @@ const investigationRequestSheet = {
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: "/", component: LoginView },
+    { path: "/", component: HomeIndex },
     { path: "/permissionError", component: PermissionError },
-    { path: "/aboutUs", component: HomeIndex },
+    { path: "/aboutUs", component: LoginView },
     {
       path: "/patientsearch",
       component: SearchView,

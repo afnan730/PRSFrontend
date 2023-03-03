@@ -63,7 +63,7 @@ export default {
         console.log(actor);
         if(actor==='admin'|| actor==='Admin'){
          
-            this.$router.replace({ path: "/admin/viewusers" });
+            this.$router.replace({ path: "/admin/dashboard" });
         }else{
           this.$router.replace({ path: "/patientsearch" });
         }
