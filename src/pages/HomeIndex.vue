@@ -33,7 +33,7 @@
         <h1> Omdarman Maturity Hospital <br> Patient Record System</h1>
         <p class="about-sys">Is a digital version of a patient’s paper file.Which is real-time, patient-centered records that make information available instantly and securely to authorized users. 
     Contain a patient’s medical history, diagnoses, medications, treatment plans, immunization dates, allergies, and laboratory tests and results</p>
-    <a href="/" class="btn btn-dark login" >Login Now</a>
+    <a href="/login" class="btn btn-dark login" >Login Now</a>
       </div> 
       <div class="col">
 

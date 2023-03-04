@@ -207,7 +207,7 @@ const router = createRouter({
   routes: [
     { path: "/", component: HomeIndex },
     { path: "/permissionError", component: PermissionError },
-    { path: "/aboutUs", component: LoginView },
+    { path: "/login", component: LoginView },
     {
       path: "/patientsearch",
       component: SearchView,
