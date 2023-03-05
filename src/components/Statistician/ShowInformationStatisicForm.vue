@@ -64,11 +64,11 @@
           <td class="text-dark fw-bold">Immunization againts diseases</td>
           <td>{{ SF.immunization_against_diseases }}</td>
         </tr>
-        <tr>
+        <tr v-if="SF.immunization_date">
           <td class="text-dark fw-bold">Immunization date</td>
           <td>{{ SF.immunization_date }}</td>
         </tr>
-        <tr>
+        <tr v-if="SF.immunization_place">
           <td class="text-dark fw-bold">Immunization place</td>
           <td>{{ SF.immunization_place }}</td>
         </tr>
