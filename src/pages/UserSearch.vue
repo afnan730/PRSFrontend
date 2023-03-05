@@ -28,7 +28,7 @@
   <tbody class="text-center">
     <tr v-for="user in users" :key="user.id">
       <!-- <th scope="row">{{user.row}}</th> -->
-      <td>{{user.first_name}} {{user.last_name}} </td>
+      <td>{{user.full_name}} </td>
       <td>{{user.designation}}</td>
       <td>{{user.phone_number}}</td>
       <!-- <td>{{user.national_id}}</td> -->

@@ -1,6 +1,6 @@
 <template>
   <div class="view">
-    <a href="/aboutUs" class="about" >Home</a>
+    <a href="/" class="about" >Home</a>
     <div class="row text-center align-items-center">
       <div class="col">
         
