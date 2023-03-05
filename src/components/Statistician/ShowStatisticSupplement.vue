@@ -38,7 +38,7 @@
         </tr>
         <tr>
           <td class="text-dark fw-bold">Baby type</td>
-          <td>{{ SS.bay_type }}</td>
+          <td>{{ SS.baby_type }}</td>
         </tr>
         <tr>
           <td class="text-dark fw-bold">Father's name</td>

@@ -401,7 +401,7 @@ export default {
           baby_name: this.babyName.value,
           baby_gender:this.babyGender.value,
           baby_status: this.babyStatus.value,
-          bay_type: this.babyType.value,
+          baby_type: this.babyType.value,
           birth_date: this.birthDate.value,
           birth_place: this.birthPlace.value,
           mothers_education:this.motherEducation.value,
